@@ -1,25 +1,36 @@
-import BookList from '../features/books/BookList';
+import { Link } from 'react-router-dom'
+import { Plus } from 'lucide-react'
+import BookList from '../features/books/BookList'
 
 export default function HomePage() {
-    return (
-        <div className="min-h-screen bg-gray-50">
-            {/* Main Container */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {/* Page Header */}
-                <div className="mb-8">
-                    <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center">
-                        Biblioteca da Família
-                    </h1>
-                    <p className="mt-2 text-lg text-gray-600 text-center max-w-2xl mx-auto">
-                        Descubra, compartilhe e gerencie os livros da família
-                    </p>
-                </div>
-
-                {/* Books Section */}
-                <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                    <BookList />
-                </div>
-            </div>
+  return (
+    <>
+      {/* Page Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">
+            Todos os Livros
+          </h1>
+          <p className="mt-2 text-gray-600">
+            Explore a coleção de livros da família
+          </p>
         </div>
-    );
+        
+        <div className="mt-4 sm:mt-0">
+          <Link
+            to="/add-book"
+            className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors"
+          >
+            <Plus className="h-4 w-4 mr-2" />
+            Adicionar Livro
+          </Link>
+        </div>
+      </div>
+
+      {/* Books Section */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <BookList />
+      </div>
+    </>
+  )
 }
