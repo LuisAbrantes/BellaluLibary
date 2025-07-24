@@ -30,6 +30,7 @@ export interface Book {
 export interface User {
     id: string;
     name: string;
+    favorite_book_id: string | null;
     is_active: boolean;
 }
 
